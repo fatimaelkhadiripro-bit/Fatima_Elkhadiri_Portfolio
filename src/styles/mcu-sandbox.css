@@ -1,0 +1,138 @@
+/* MCU Pinout Sandbox Styles */
+.mcu-sandbox-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  backdrop-filter: var(--glass-backdrop);
+}
+
+.mcu-chip-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 420px;
+}
+
+.mcu-chip-package {
+  width: 260px;
+  height: 260px;
+  background: #141720;
+  border: 2px solid #2B3548;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 15px 35px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-notch {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #090C12;
+  border: 1px solid #2B3548;
+}
+
+.chip-label {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.chip-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--cyan-glow);
+  margin-top: 4px;
+}
+
+/* Pins around the quad chip package */
+.chip-pins-left, .chip-pins-right {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.chip-pins-left { left: -22px; }
+.chip-pins-right { right: -22px; }
+
+.mcu-pin {
+  width: 22px;
+  height: 10px;
+  background: #5A6982;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.mcu-pin:hover, .mcu-pin.active {
+  background: var(--cyan-glow);
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.mcu-pin.power { background: var(--red-glow); }
+.mcu-pin.ground { background: #334155; }
+.mcu-pin.comm { background: var(--amber-glow); }
+
+.mcu-inspector {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.inspector-title {
+  color: var(--cyan-glow);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pin-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin-bottom: 1.25rem;
+}
+
+.pin-details-table td {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-snippet-box {
+  background: #060911;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  color: var(--text-code);
+  font-size: 0.78rem;
+  overflow-x: auto;
+}
+
+@media (max-width: 900px) {
+  .mcu-sandbox-container {
+    grid-template-columns: 1fr;
+  }
+}

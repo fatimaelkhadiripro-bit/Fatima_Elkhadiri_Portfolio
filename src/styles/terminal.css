@@ -1,0 +1,103 @@
+/* UART Serial Console Terminal Styles */
+.terminal-wrapper {
+  background: #05080E;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  font-family: var(--font-mono);
+}
+
+.terminal-header {
+  background: #0B101D;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.terminal-dot.red { background: #FF5F56; }
+.terminal-dot.yellow { background: #FFBD2E; }
+.terminal-dot.green { background: #27C93F; }
+
+.terminal-title {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.terminal-baud-select {
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--cyan-glow);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.terminal-body {
+  height: 320px;
+  padding: 1.25rem;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--green-glow);
+  background: #030508;
+}
+
+.terminal-line {
+  margin-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+.terminal-line .timestamp {
+  color: var(--text-dim);
+  margin-right: 0.5rem;
+}
+
+.terminal-line.cmd {
+  color: var(--cyan-glow);
+}
+
+.terminal-line.info {
+  color: var(--text-main);
+}
+
+.terminal-line.amber {
+  color: var(--amber-glow);
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #0A0E1A;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-prompt {
+  color: var(--cyan-glow);
+  font-weight: 700;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--green-glow);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
