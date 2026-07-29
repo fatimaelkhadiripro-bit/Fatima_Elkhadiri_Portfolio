@@ -59,6 +59,15 @@ export const skillsCategories = [
       { name: "Git, Azure DevOps & Docker", desc: "Gestion de configuration & conteneurisation" },
       { name: "Supervision Qt Framework (C++ / Python)", desc: "Supervision & interfaces IHM" }
     ]
+  },
+  {
+    category: "Langues Parlées & Certifications",
+    icon: "globe",
+    items: [
+      { name: "Français", desc: "Niveau C1 (Courant / Professionnel)" },
+      { name: "Anglais", desc: "Niveau C1 (Avancé — TOEIC : 950 / 990)" },
+      { name: "Arabe", desc: "Langue Maternelle" }
+    ]
   }
 ];
 
@@ -137,8 +146,8 @@ export const certificationsAndLanguages = {
     "Mastering PCB Design and Layout Specialization — Coursera"
   ],
   languages: [
-    { name: "Français", level: "Courant" },
-    { name: "Anglais", level: "Avancé (TOEIC 950)" },
-    { name: "Arabe", level: "Maternel" }
+    { name: "Français", level: "Niveau C1 (Courant)" },
+    { name: "Anglais", level: "Niveau C1 (TOEIC : 950 / 990)" },
+    { name: "Arabe", level: "Langue Maternelle" }
   ]
 };
