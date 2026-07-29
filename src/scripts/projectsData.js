@@ -4,7 +4,7 @@ export const embeddedProjects = [
     title: "Perception ADAS & Vision Embarquée sur Engins Industriels",
     category: "ROS2 & NVIDIA Jetson",
     badge: "Manitou Group / ROS2",
-    image: "/images/adas_jetson_vision.png",
+    image: "./images/adas_jetson_vision.png",
     description: "Système de perception artificielle et sécurité ADAS. Traitement d'images fisheye avec rectification géométrique, projection du nuage de points radars et détection d'objets par Deep Learning accéléré sous CUDA.",
     specs: {
       Platform: "NVIDIA Jetson Orin / Xavier",
@@ -20,7 +20,7 @@ export const embeddedProjects = [
       "Docker Container Environment"
     ],
     gallery: [
-      { url: "/images/adas_jetson_vision.png", caption: "Plateforme NVIDIA Jetson ADAS & Vision" }
+      { url: "./images/adas_jetson_vision.png", caption: "Plateforme NVIDIA Jetson ADAS & Vision" }
     ]
   },
   {
@@ -28,7 +28,7 @@ export const embeddedProjects = [
     title: "Carte Électronique de Contrôle-Commande & Routage PCB KiCad",
     category: "Électronique & Firmware STM32",
     badge: "Equium / KiCad & C",
-    image: "/images/equium_pcb_3d.png",
+    image: "./images/equium_pcb_3d.png",
     description: "Conception complète de la carte de pilotage d'un moteur linéaire pour pompe à chaleur nouvelle génération. Schéma & routage PCB 4-couches sous KiCad, firmware C (Drivers HAL STM32), FreeRTOS et IHM de supervision Qt.",
     specs: {
       MCU: "STM32F4 / ARM Cortex-M4",
@@ -44,11 +44,11 @@ export const embeddedProjects = [
       "Régulateurs DC-DC Haute Efficacité"
     ],
     gallery: [
-      { url: "/images/equium_pcb_3d.png", caption: "Vue 3D Carte Principale Equium Drive Motor A6" },
-      { url: "/images/equium_control_diagram.png", caption: "Diagramme Algorithmique de Commande du Moteur Linéaire (Asservissement Position/Courant)" },
-      { url: "/images/equium_kicad_layout.png", caption: "Routage PCB KiCad - Pistes de Cuivre & SOT23" },
-      { url: "/images/equium_sensor_board.png", caption: "Vue 3D Carte Fille Capteurs & Connecteur U1/U2" },
-      { url: "/images/equium_qt_dashboard.png", caption: "IHM de Contrôle & Supervision Développée en C++/Qt" }
+      { url: "./images/equium_pcb_3d.png", caption: "Vue 3D Carte Principale Equium Drive Motor A6" },
+      { url: "./images/equium_control_diagram.png", caption: "Diagramme Algorithmique de Commande du Moteur Linéaire (Asservissement Position/Courant)" },
+      { url: "./images/equium_kicad_layout.png", caption: "Routage PCB KiCad - Pistes de Cuivre & SOT23" },
+      { url: "./images/equium_sensor_board.png", caption: "Vue 3D Carte Fille Capteurs & Connecteur U1/U2" },
+      { url: "./images/equium_qt_dashboard.png", caption: "IHM de Contrôle & Supervision Développée en C++/Qt" }
     ]
   },
   {
@@ -56,7 +56,7 @@ export const embeddedProjects = [
     title: "Nœuds Satellitaires IoT Ultra-Basse Consommation",
     category: "IoT Satellitaire & PCB",
     badge: "CNRS Institut Pascal",
-    image: "/images/sat_field_deployment.jpg",
+    image: "./images/sat_field_deployment.jpg",
     description: "Nœuds de communication satellitaire autonomes pour la surveillance environnementale (lac/tourbière, Projet ANR SPAGNETO). Conception PCB KiCad, carte STM32 Nucleo, alimentation solaire/batterie, modem Kinéis & portail ARGOS.",
     specs: {
       MCU: "STM32L073RZ (Nucleo 64)",
@@ -71,14 +71,14 @@ export const embeddedProjects = [
       "Capteur GPS UART & MicroSD SPI Click",
       "Chargeur Batterie BQ24210 & Protection ESD TPD4S014"
     ],
-    pdfReport: "/docs/Rapport_de_stage_LPCA.pdf",
+    pdfReport: "./docs/Rapport_de_stage_LPCA.pdf",
     pdfTitle: "Rapport_de_stage_LPCA.pdf",
     gallery: [
-      { url: "/images/sat_field_deployment.jpg", caption: "Station de Mesure & Nœud Satellitaire Déployé en Condition Réelle (Boîtier IP67 sur Lac / Tourbière — Projet ANR SPAGNETO)" },
-      { url: "/images/sat_hardware_architecture.png", caption: "Architecture Matérielle Globale (STM32L073RZ, Modem Kinéis, Capteurs I2C/GPS/SPI SD & Diviseur de Tension Batterie)" },
-      { url: "/images/sat_usb_protection_schematic.png", caption: "Schéma KiCad : Connecteur USB & Puce de Protection ESD TPD4S014DSQR" },
-      { url: "/images/sat_battery_charger_schematic.png", caption: "Schéma KiCad : Gestion d'Alimentation Solaire / USB & Chargeur Batterie Li-Ion BQ24210" },
-      { url: "/images/sat_argos_portal.png", caption: "Portail Web ARGOS / Kinéis : Suivi des Passages Satellites, Prédictions & Azimut" }
+      { url: "./images/sat_field_deployment.jpg", caption: "Station de Mesure & Nœud Satellitaire Déployé en Condition Réelle (Boîtier IP67 sur Lac / Tourbière — Projet ANR SPAGNETO)" },
+      { url: "./images/sat_hardware_architecture.png", caption: "Architecture Matérielle Globale (STM32L073RZ, Modem Kinéis, Capteurs I2C/GPS/SPI SD & Diviseur de Tension Batterie)" },
+      { url: "./images/sat_usb_protection_schematic.png", caption: "Schéma KiCad : Connecteur USB & Puce de Protection ESD TPD4S014DSQR" },
+      { url: "./images/sat_battery_charger_schematic.png", caption: "Schéma KiCad : Gestion d'Alimentation Solaire / USB & Chargeur Batterie Li-Ion BQ24210" },
+      { url: "./images/sat_argos_portal.png", caption: "Portail Web ARGOS / Kinéis : Suivi des Passages Satellites, Prédictions & Azimut" }
     ]
   },
   {
@@ -86,7 +86,7 @@ export const embeddedProjects = [
     title: "Segmentation du Foie Humain par Apprentissage Continu",
     category: "Deep Learning & MLOps",
     badge: "PyTorch & Medical AI",
-    image: "/images/liver_segmentation_prediction.png",
+    image: "./images/liver_segmentation_prediction.png",
     description: "Outil d'IA médicale pour la chirurgie mini-invasive du cancer. Segmentation automatique des images et vidéos laparoscopiques du foie (format DICOM, SAM-CL, S3R, Docker, PyTorch).",
     specs: {
       Framework: "PyTorch / Docker",
@@ -101,7 +101,7 @@ export const embeddedProjects = [
       "Conteneur Docker Portable"
     ],
     gallery: [
-      { url: "/images/liver_segmentation_prediction.png", caption: "Résultat de Segmentation Laparoscopique du Foie : Image Originale (Vidéo Laparoscopique), Vérité Terrain (Ground Truth) & Prédiction du Modèle Deep Learning (SAM-CL / PyTorch)" }
+      { url: "./images/liver_segmentation_prediction.png", caption: "Résultat de Segmentation Laparoscopique du Foie : Image Originale (Vidéo Laparoscopique), Vérité Terrain (Ground Truth) & Prédiction du Modèle Deep Learning (SAM-CL / PyTorch)" }
     ]
   },
   {
@@ -109,7 +109,7 @@ export const embeddedProjects = [
     title: "Imitation des Gestes Humains par Robot Humanoïde Pepper",
     category: "Robotique Humanoïde & Vision",
     badge: "Robot Pepper / Perception",
-    image: "/images/rtos_flight_controller.png",
+    image: "./images/rtos_flight_controller.png",
     description: "Application d'imitation des gestes humains en temps réel pour le robot humanoïde Pepper. Modélisation géométrique des membres, chaîne de perception et commande en coordonnées articulaires.",
     specs: {
       Robot: "Pepper Humanoid Platform",
@@ -122,10 +122,10 @@ export const embeddedProjects = [
       "Caméras 3D de Perception",
       "Serveur de Calcul Cinématique"
     ],
-    pdfReport: "/docs/Rapport_projet_Miroir_Pepper_GE5A.pdf",
+    pdfReport: "./docs/Rapport_projet_Miroir_Pepper_GE5A.pdf",
     pdfTitle: "Rapport_projet_Miroir_Pepper_GE5A.pdf",
     gallery: [
-      { url: "/images/rtos_flight_controller.png", caption: "Plateforme Robot Humanoïde Pepper" }
+      { url: "./images/rtos_flight_controller.png", caption: "Plateforme Robot Humanoïde Pepper" }
     ]
   },
   {
@@ -133,7 +133,7 @@ export const embeddedProjects = [
     title: "Centrale Inertielle (IMU) sur FPGA en VHDL",
     category: "VHDL & FPGA Hardware",
     badge: "VHDL / FPGA",
-    image: "/images/can_bus_gateway.png",
+    image: "./images/can_bus_gateway.png",
     description: "Conception et implémentation complète en VHDL d'un processeur dédié au traitement rapide des données d'une centrale inertielle 9-axes (Accéléromètre, Gyroscope, Magnétomètre).",
     specs: {
       Language: "VHDL-2008",
@@ -147,7 +147,7 @@ export const embeddedProjects = [
       "Banc de Test Logic Analyzer"
     ],
     gallery: [
-      { url: "/images/can_bus_gateway.png", caption: "Implémentation VHDL Processeur IMU" }
+      { url: "./images/can_bus_gateway.png", caption: "Implémentation VHDL Processeur IMU" }
     ]
   }
 ];
