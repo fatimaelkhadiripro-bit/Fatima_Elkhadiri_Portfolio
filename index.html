@@ -15,7 +15,7 @@
   <!-- Application Styles -->
   
   
-  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/index-c27f1210.js"></script>
+  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/index-31b12b85.js"></script>
   <link rel="stylesheet" href="/Fatima_Elkhadiri_Portfolio/assets/index-115ec61c.css">
 </head>
 <body>
@@ -166,13 +166,13 @@
       </div>
     </section>
 
-    <!-- Direct Contact Form -->
+    <!-- Direct Contact Form with Web3Forms Live Email Delivery -->
     <section id="contact">
       <div class="container">
         <div class="section-header">
           <div class="section-tag"><span class="dot"></span> Prise de Contact & Recrutement</div>
           <h2 class="section-title">Contactez Fatima Elkhadiri</h2>
-          <p class="section-subtitle">Vous avez un poste d'ingénieure en systèmes embarqués, robotique ou vision à me proposer en CDI ? Transmettez un message direct.</p>
+          <p class="section-subtitle">Vous avez un poste d'ingénieure en systèmes embarqués, robotique ou vision à me proposer en CDI ? Transmettez votre message directement sur ma boîte mail.</p>
         </div>
 
         <div style="max-width:650px; margin:0 auto; background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; backdrop-filter:var(--glass-backdrop);">
@@ -188,19 +188,28 @@
             </div>
           </div>
 
-          <form id="hex-contact-form" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <form id="hex-contact-form" action="https://api.web3forms.com/submit" method="POST" style="display:flex; flex-direction:column; gap:1.25rem;">
+            <input type="hidden" name="access_key" value="164da1c2-6391-449d-a583-f5d3b73bac1c">
+            <input type="hidden" name="subject" value="Nouveau Message - Portfolio Fatima Elkhadiri">
+            <input type="hidden" name="from_name" value="Portfolio Fatima Elkhadiri">
+
             <div>
-              <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE ADRESSE EMAIL (RECRUTEUR / ENTREPRISE) :</label>
-              <input type="email" id="contact-email" required placeholder="recrutement@entreprise.fr" style="width:100%; padding:0.75rem; background:#060911; border:1px solid var(--border-color); border-radius:6px; color:var(--text-main); font-family:var(--font-mono); outline:none;">
+              <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE NOM & PRÉNOM (RECRUTEUR / ENTREPRISE) :</label>
+              <input type="text" name="name" required placeholder="Jean Dupont (Recruteur / Entreprise)" style="width:100%; padding:0.75rem; background:#060911; border:1px solid var(--border-color); border-radius:6px; color:var(--text-main); font-family:var(--font-mono); outline:none;">
+            </div>
+
+            <div>
+              <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE ADRESSE EMAIL :</label>
+              <input type="email" name="email" id="contact-email" required placeholder="recrutement@entreprise.fr" style="width:100%; padding:0.75rem; background:#060911; border:1px solid var(--border-color); border-radius:6px; color:var(--text-main); font-family:var(--font-mono); outline:none;">
             </div>
 
             <div>
               <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE MESSAGE / OFFRE CDI :</label>
-              <textarea id="contact-msg" rows="4" required placeholder="Bonjour Fatima, nous recherchons une ingénieure systèmes embarqués & vision..." style="width:100%; padding:0.75rem; background:#060911; border:1px solid var(--border-color); border-radius:6px; color:var(--text-main); font-family:var(--font-mono); outline:none; resize:vertical;"></textarea>
+              <textarea name="message" id="contact-msg" rows="4" required placeholder="Bonjour Fatima, nous recherchons une ingénieure systèmes embarqués & vision..." style="width:100%; padding:0.75rem; background:#060911; border:1px solid var(--border-color); border-radius:6px; color:var(--text-main); font-family:var(--font-mono); outline:none; resize:vertical;"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="justify-content:center; padding:0.85rem;">
-              ⚡ Envoyer un Message Direct
+            <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="justify-content:center; padding:0.85rem;">
+              ⚡ Envoyer un Message Direct à Fatima
             </button>
           </form>
         </div>
