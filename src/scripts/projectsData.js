@@ -23,7 +23,7 @@ export const embeddedProjects = [
     ],
     gallery: [
       { url: getUrl("images/manitou_adas_fov_coverage.png"), caption: "Couverture des Zones de Détection (FOV Caméras Fisheye & Radars FMCW) et Sécurité Piétons sur Engin Manitou" },
-      { url: getUrl("images/simplescreenrecorder-2026-07-21_16.11.03.mp4"), caption: "🎥 Démonstration Vidéo : Perception ADAS, Rectification Fisheye & Détection d'Objets en Temps Réel sur NVIDIA Jetson" }
+      { url: getUrl("images/simplescreenrecorder-2026-07-21_16.11.03.mp4"), caption: "🎥 Démonstration Vidéo : Perception ADAS, Rectification Fisheye & Stitching" }
     ]
   },
   {
