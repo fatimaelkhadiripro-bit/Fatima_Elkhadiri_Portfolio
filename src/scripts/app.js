@@ -109,23 +109,47 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Direct Hardware Contact Form Simulation
+  // Web3Forms AJAX Contact Form Handler
   const contactForm = document.getElementById('hex-contact-form');
+  const btn = document.getElementById('contact-submit-btn');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  if (contactForm && btn) {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      if (btn) {
-        btn.textContent = '⚡ MESSAGE TRANSMIS AVEC SUCCÈS !';
-        btn.style.background = 'var(--green-glow)';
-        btn.style.color = '#000';
-        setTimeout(() => {
-          btn.textContent = '⚡ Envoyer un Message Direct';
-          btn.style.background = '';
-          btn.style.color = '';
+      
+      const originalText = btn.textContent;
+      btn.textContent = '⏳ Envoi du message en cours...';
+      btn.disabled = true;
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          btn.textContent = '⚡ MESSAGE TRANSMIS À FATIMA (REÇU SUR GMAIL) !';
+          btn.style.background = 'var(--green-glow)';
+          btn.style.color = '#000';
           contactForm.reset();
-        }, 3000);
+
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+            btn.disabled = false;
+          }, 4000);
+        } else {
+          btn.textContent = '❌ Erreur d\'envoi. Veuillez réespayer.';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = '❌ Erreur de connexion réseau.';
+        btn.disabled = false;
       }
     });
   }
