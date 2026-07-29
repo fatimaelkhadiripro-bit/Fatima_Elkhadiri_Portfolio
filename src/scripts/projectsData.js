@@ -22,7 +22,9 @@ export const embeddedProjects = [
       "Docker Container Environment"
     ],
     gallery: [
-      { url: getUrl("images/adas_jetson_vision.png"), caption: "Plateforme NVIDIA Jetson ADAS & Vision" }
+      { url: getUrl("images/adas_jetson_vision.png"), caption: "Plateforme NVIDIA Jetson ADAS & Vision" },
+      { url: getUrl("images/manitou_adas_fov_coverage.png"), caption: "Couverture des Zones de Détection (FOV Caméras Fisheye & Radars FMCW) et Sécurité Piétons sur Engin Manitou" },
+      { url: getUrl("images/simplescreenrecorder-2026-07-21_16.11.03.mp4"), caption: "🎥 Démonstration Vidéo : Perception ADAS, Rectification Fisheye & Détection d'Objets en Temps Réel sur NVIDIA Jetson" }
     ]
   },
   {
@@ -135,21 +137,21 @@ export const embeddedProjects = [
     title: "Centrale Inertielle (IMU) sur FPGA en VHDL",
     category: "VHDL & FPGA Hardware",
     badge: "VHDL / FPGA",
-    image: getUrl("images/can_bus_gateway.png"),
-    description: "Conception et implémentation complète en VHDL d'un processeur dédié au traitement rapide des données d'une centrale inertielle 9-axes (Accéléromètre, Gyroscope, Magnétomètre).",
+    image: getUrl("images/fpga_de10_lite_imu.png"),
+    description: "Conception et implémentation complète en VHDL d'un processeur dédié au traitement rapide des données d'une centrale inertielle 9-axes (Accéléromètre, Gyroscope, Magnétomètre) sur carte Terasic DE10-Lite.",
     specs: {
       Language: "VHDL-2008",
-      Hardware: "FPGA Xilinx / Intel Altera",
+      Hardware: "FPGA Terasic DE10-Lite (MAX 10)",
       Interface: "SPI Master Hardware",
       Filter: "Fixed-Point Math Pipeline"
     },
     bom: [
-      "Carte de Développement FPGA",
-      "Capteur IMU 9-Axes MPU-9250",
-      "Banc de Test Logic Analyzer"
+      "Carte de Développement FPGA Terasic DE10-Lite",
+      "Capteur IMU 9-Axes MPU-9250 / SPI",
+      "Afficheurs 7-Séquences LED & Switches"
     ],
     gallery: [
-      { url: getUrl("images/can_bus_gateway.png"), caption: "Implémentation VHDL Processeur IMU" }
+      { url: getUrl("images/fpga_de10_lite_imu.png"), caption: "Test & Démonstration du Processeur VHDL sur Carte FPGA Terasic DE10-Lite (Affichage 7-Séquences des Mesures Angle/Accélération IMU)" }
     ]
   }
 ];

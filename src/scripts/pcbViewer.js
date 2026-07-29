@@ -29,6 +29,21 @@ export class PCBViewerModal {
     this.overlay.classList.remove('active');
   }
 
+  isMediaVideo(url) {
+    if (!url) return false;
+    return url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg');
+  }
+
+  renderMediaElement(media) {
+    if (this.isMediaVideo(media.url)) {
+      return `<video id="gallery-main-media" controls autoplay loop muted style="max-width:100%; max-height:420px; width:auto; height:auto; object-fit:contain; display:block;">
+        <source src="${media.url}" type="video/mp4">
+        Votre navigateur ne prend pas en charge la lecture de vidéos MP4.
+      </video>`;
+    }
+    return `<img id="gallery-main-media" src="${media.url}" alt="${media.caption}" style="max-width:100%; max-height:420px; width:auto; height:auto; object-fit:contain; display:block; transition:all 0.3s ease;">`;
+  }
+
   render() {
     if (!this.activeProject) return;
     const proj = this.activeProject;
@@ -56,22 +71,26 @@ export class PCBViewerModal {
           </div>
         ` : ''}
 
-        <!-- Media Gallery Main Display -->
+        <!-- Media Gallery Main Display (Supports Images & MP4 Videos) -->
         <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:1.5rem;">
-          <div style="border:1px solid var(--border-color); border-radius:var(--radius-md); overflow:hidden; background:#000; position:relative; min-height:300px; max-height:450px; display:flex; align-items:center; justify-content:center;">
-            <img id="gallery-main-img" src="${currentMedia.url}" alt="${currentMedia.caption}" style="max-width:100%; max-height:420px; width:auto; height:auto; object-fit:contain; display:block; transition:all 0.3s ease;">
+          <div id="media-viewport" style="border:1px solid var(--border-color); border-radius:var(--radius-md); overflow:hidden; background:#000; position:relative; min-height:300px; max-height:450px; display:flex; align-items:center; justify-content:center;">
+            ${this.renderMediaElement(currentMedia)}
           </div>
           
           <div id="gallery-caption" style="font-family:var(--font-mono); font-size:0.85rem; color:var(--cyan-glow); text-align:center; background:rgba(0,240,255,0.05); padding:0.5rem 1rem; border-radius:6px; border:1px solid var(--border-color);">
             📌 ${currentMedia.caption}
           </div>
 
-          <!-- Thumbnails Selector if multiple images available -->
+          <!-- Thumbnails Selector if multiple items available -->
           ${gallery.length > 1 ? `
             <div style="display:flex; gap:0.6rem; overflow-x:auto; padding-bottom:0.5rem;">
               ${gallery.map((item, idx) => `
-                <button class="gallery-thumb-btn ${idx === this.activeGalleryIdx ? 'active' : ''}" data-idx="${idx}" style="border:${idx === this.activeGalleryIdx ? '2px solid var(--cyan-glow)' : '1px solid var(--border-color)'}; border-radius:6px; overflow:hidden; width:85px; height:60px; flex-shrink:0; background:#000; cursor:pointer; padding:0; transition:all 0.2s ease;">
-                  <img src="${item.url}" style="width:100%; height:100%; object-fit:cover;">
+                <button class="gallery-thumb-btn ${idx === this.activeGalleryIdx ? 'active' : ''}" data-idx="${idx}" style="border:${idx === this.activeGalleryIdx ? '2px solid var(--cyan-glow)' : '1px solid var(--border-color)'}; border-radius:6px; overflow:hidden; width:85px; height:60px; flex-shrink:0; background:#000; cursor:pointer; padding:0; transition:all 0.2s ease; position:relative;">
+                  ${this.isMediaVideo(item.url) ? `
+                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:rgba(0,240,255,0.2); color:var(--cyan-glow); font-size:1.2rem;">▶</div>
+                  ` : `
+                    <img src="${item.url}" style="width:100%; height:100%; object-fit:cover;">
+                  `}
                 </button>
               `).join('')}
             </div>
@@ -114,12 +133,11 @@ export class PCBViewerModal {
         const idx = parseInt(btn.getAttribute('data-idx'), 10);
         this.activeGalleryIdx = idx;
         const media = gallery[idx];
-        const mainImg = document.getElementById('gallery-main-img');
+        const viewport = document.getElementById('media-viewport');
         const captionEl = document.getElementById('gallery-caption');
 
-        if (mainImg && media) {
-          mainImg.src = media.url;
-          mainImg.alt = media.caption;
+        if (viewport && media) {
+          viewport.innerHTML = this.renderMediaElement(media);
         }
         if (captionEl && media) {
           captionEl.textContent = `📌 ${media.caption}`;
