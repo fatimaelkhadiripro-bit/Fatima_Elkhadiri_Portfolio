@@ -6,7 +6,7 @@ export const embeddedProjects = [
     title: "Perception ADAS & Vision Embarquée sur Engins Industriels",
     category: "ROS2 & NVIDIA Jetson",
     badge: "Manitou Group / ROS2",
-    image: getUrl("images/adas_jetson_vision.png"),
+    image: getUrl("images/manitou_adas_fov_coverage.png"),
     description: "Système de perception artificielle et sécurité ADAS. Traitement d'images fisheye avec rectification géométrique, projection du nuage de points radars et détection d'objets par Deep Learning accéléré sous CUDA.",
     specs: {
       Platform: "NVIDIA Jetson Orin / Xavier",
@@ -22,7 +22,6 @@ export const embeddedProjects = [
       "Docker Container Environment"
     ],
     gallery: [
-      { url: getUrl("images/adas_jetson_vision.png"), caption: "Plateforme NVIDIA Jetson ADAS & Vision" },
       { url: getUrl("images/manitou_adas_fov_coverage.png"), caption: "Couverture des Zones de Détection (FOV Caméras Fisheye & Radars FMCW) et Sécurité Piétons sur Engin Manitou" },
       { url: getUrl("images/simplescreenrecorder-2026-07-21_16.11.03.mp4"), caption: "🎥 Démonstration Vidéo : Perception ADAS, Rectification Fisheye & Détection d'Objets en Temps Réel sur NVIDIA Jetson" }
     ]
