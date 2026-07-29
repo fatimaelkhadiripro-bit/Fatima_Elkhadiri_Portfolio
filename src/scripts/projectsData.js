@@ -111,8 +111,8 @@ export const embeddedProjects = [
     title: "Imitation des Gestes Humains par Robot Humanoïde Pepper",
     category: "Robotique Humanoïde & Vision",
     badge: "Robot Pepper / Perception",
-    image: getUrl("images/rtos_flight_controller.png"),
-    description: "Application d'imitation des gestes humains en temps réel pour le robot humanoïde Pepper. Modélisation géométrique des membres, chaîne de perception et commande en coordonnées articulaires.",
+    image: getUrl("images/pepper_robot_test_miroir.png"),
+    description: "Application d'imitation des gestes humains en temps réel pour le robot humanoïde Pepper. Modélisation géométrique des membres, chaîne de perception (pose estimation) et commande en coordonnées articulaires (prise d'un objet).",
     specs: {
       Robot: "Pepper Humanoid Platform",
       Pipeline: "Perception & Kinematics",
@@ -127,7 +127,7 @@ export const embeddedProjects = [
     pdfReport: getUrl("docs/Rapport_projet_Miroir_Pepper_GE5A.pdf"),
     pdfTitle: "Rapport_projet_Miroir_Pepper_GE5A.pdf",
     gallery: [
-      { url: getUrl("images/rtos_flight_controller.png"), caption: "Plateforme Robot Humanoïde Pepper" }
+      { url: getUrl("images/pepper_robot_test_miroir.png"), caption: "Test Miroir Pepper & Prise d'un Objet : Suivi de Squelette / Pose Humaine en Temps Réel et Commande Articulaire du Robot Pepper" }
     ]
   },
   {
