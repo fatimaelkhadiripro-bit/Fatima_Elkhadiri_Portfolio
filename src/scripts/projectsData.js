@@ -2,6 +2,34 @@ const getUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
 export const embeddedProjects = [
   {
+    id: "esp32-c3-iot-pcb",
+    title: "Carte IoT Sur-Mesure ESP32-C3 & Gestion d'Énergie TP4056",
+    category: "Électronique PCB & IoT",
+    badge: "KiCad & ESP32-C3",
+    image: getUrl("images/esp32_c3_iot_pcb_schematic.png"),
+    description: "Conception complète d'un PCB sur-mesure pour application IoT autonome basée sur le SoC ESP32-C3-02 (Wi-Fi & BLE). Gestion d'énergie intégrée avec chargeur Li-Ion TP4056 (USB-C), capteurs BME280 / lumière / son, mémoire Flash SPI et stockage MicroSD.",
+    cadlabUrl: "https://cadlab.io/project/28685",
+    specs: {
+      MCU: "ESP32-C3-02 (Wi-Fi / BLE)",
+      Power: "TP4056 Li-Ion + USB-C",
+      Sensors: "BME280, Lumière & Son",
+      Storage: "Flash W25Q32 + MicroSD SPI",
+      Display: "OLED I2C Interface",
+      EDA: "KiCad 9.0 (CADLAB.io #28685)"
+    },
+    bom: [
+      "SoC ESP32-C3-MINI-1 / ESP32-C3-02 (Wi-Fi & BLE)",
+      "Chargeur Batterie Li-Ion TP4056 avec Régulation Thermique",
+      "Convertisseur USB-UART CP2102N & Protection USBLC6-2SC6",
+      "Mémoire Flash SPI W25Q32JVSSIQ & Lecteur MicroSD GSD090012SEU",
+      "Capteur Environnemental BME280 (Température, Humidité, Pression)",
+      "Connecteur USB-C & Circuit d'Alimentation Régulée LDO 3.3V"
+    ],
+    gallery: [
+      { url: getUrl("images/esp32_c3_iot_pcb_schematic.png"), caption: "Schéma Électronique KiCad 9.0 : Convertisseur USB-UART CP2102N, Microcontrôleur ESP32-C3-02, Mémoire Flash SPI & Interface Carte MicroSD" }
+    ]
+  },
+  {
     id: "adas-jetson-vision",
     title: "Perception ADAS & Vision Embarquée sur Engins Industriels",
     category: "ROS2 & NVIDIA Jetson",

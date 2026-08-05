@@ -33,8 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="project-actions" style="flex-direction:column; gap:0.5rem;">
             <button class="btn btn-primary open-pcb-btn" data-project="${proj.id}" style="width:100%;">
-              ⚡ Galerie & Médias (${proj.gallery ? proj.gallery.length : 1})
+              ⚡ Galerie & Schéma (${proj.gallery ? proj.gallery.length : 1})
             </button>
+            ${proj.cadlabUrl ? `
+              <a href="${proj.cadlabUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
+                🔗 Voir sur CADLAB.io
+              </a>
+            ` : ''}
             ${proj.pdfReport ? `
               <a href="${proj.pdfReport}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
                 📄 Rapport PDF (${proj.pdfTitle})

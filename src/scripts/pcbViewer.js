@@ -59,6 +59,18 @@ export class PCBViewerModal {
         </div>
         <h2 style="font-size:1.8rem; margin-bottom:1rem; font-weight:800; color:var(--text-main);">${proj.title}</h2>
         
+        ${proj.cadlabUrl ? `
+          <div style="background:rgba(0,240,255,0.08); border:1px solid var(--cyan-glow); border-radius:var(--radius-md); padding:0.85rem 1.25rem; margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+            <div>
+              <div style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--cyan-glow);">🔗 DÉPÔT CADLAB.IO DISPONIBLE</div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">Schéma KiCad & Fichiers de Conception PCB en ligne</div>
+            </div>
+            <a href="${proj.cadlabUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration:none;">
+              🔗 Voir sur CADLAB.io (Project #28685)
+            </a>
+          </div>
+        ` : ''}
+
         ${proj.pdfReport ? `
           <div style="background:rgba(255,176,0,0.08); border:1px solid var(--amber-glow); border-radius:var(--radius-md); padding:0.85rem 1.25rem; margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
             <div>
