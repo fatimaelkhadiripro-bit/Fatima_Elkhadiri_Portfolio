@@ -8,14 +8,13 @@ export const embeddedProjects = [
     badge: "KiCad & ESP32-C3",
     image: getUrl("images/esp32_c3_iot_pcb_schematic.png"),
     description: "Conception complète d'un PCB sur-mesure pour application IoT autonome basée sur le SoC ESP32-C3-02 (Wi-Fi & BLE). Gestion d'énergie intégrée avec chargeur Li-Ion TP4056 (USB-C), capteurs BME280 / lumière / son, mémoire Flash SPI et stockage MicroSD.",
-    cadlabUrl: "https://cadlab.io/project/28685",
     specs: {
       MCU: "ESP32-C3-02 (Wi-Fi / BLE)",
       Power: "TP4056 Li-Ion + USB-C",
       Sensors: "BME280, Lumière & Son",
       Storage: "Flash W25Q32 + MicroSD SPI",
       Display: "OLED I2C Interface",
-      EDA: "KiCad 9.0 (CADLAB.io #28685)"
+      EDA: "KiCad 9.0 (CAO PCB)"
     },
     bom: [
       "SoC ESP32-C3-MINI-1 / ESP32-C3-02 (Wi-Fi & BLE)",
