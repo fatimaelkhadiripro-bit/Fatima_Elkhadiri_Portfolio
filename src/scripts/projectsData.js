@@ -6,7 +6,7 @@ export const embeddedProjects = [
     title: "AURA Local LLM Studio — Studio d'IA Générative Local & RAG",
     category: "IA Générative, WebGPU & MLOps",
     badge: "WebGPU / Ollama & Python",
-    image: getUrl("images/equium_qt_dashboard.png"),
+    image: getUrl("images/aura_llm_studio_app.png"),
     description: "Application web privée et haute performance conçue pour exécuter des modèles de langage (LLM) à 100% en local sans aucune dépendance cloud. Architecture multi-moteurs (Python natif, WebGPU navigateur & Ollama), moteur RAG (Retrieval-Augmented Generation) pour la recherche sémantique sur documents PDF/code avec citations de pages, télémétrie en temps réel (tok/s, latence), rendu Markdown/LaTeX, dictée vocale et synthèse audio.",
     specs: {
       Architecture: "Multi-Engine (WebGPU, Ollama, Python)",
@@ -25,7 +25,7 @@ export const embeddedProjects = [
       "Bibliothèque de Prompt Templates & Télémétrie en Temps Réel"
     ],
     gallery: [
-      { url: getUrl("images/equium_qt_dashboard.png"), caption: "Interface AURA Local LLM Studio : Studio d'IA Générative Local, Télémétrie & Moteur RAG" }
+      { url: getUrl("images/aura_llm_studio_app.png"), caption: "Interface AURA LLM Studio : Studio d'IA Générative Local, Moteur Python Local & Télémétrie" }
     ]
   },
   {
