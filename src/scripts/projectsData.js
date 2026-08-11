@@ -2,6 +2,33 @@ const getUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
 export const embeddedProjects = [
   {
+    id: "aura-local-llm-studio",
+    title: "AURA Local LLM Studio — Studio d'IA Générative Local & RAG",
+    category: "IA Générative, WebGPU & MLOps",
+    badge: "WebGPU / Ollama & Python",
+    image: getUrl("images/equium_qt_dashboard.png"),
+    description: "Application web privée et haute performance conçue pour exécuter des modèles de langage (LLM) à 100% en local sans aucune dépendance cloud. Architecture multi-moteurs (Python natif, WebGPU navigateur & Ollama), moteur RAG (Retrieval-Augmented Generation) pour la recherche sémantique sur documents PDF/code avec citations de pages, télémétrie en temps réel (tok/s, latence), rendu Markdown/LaTeX, dictée vocale et synthèse audio.",
+    specs: {
+      Architecture: "Multi-Engine (WebGPU, Ollama, Python)",
+      RAG: "In-Browser RAG (PDF & Code Citations)",
+      Privacy: "100% Local & Privacy-First (0 Cloud)",
+      Telemetry: "Real-time Metrics (tok/s & Latency)",
+      Audio: "Voice Dictation & Text-to-Speech",
+      Interface: "Dark Glassmorphism & LaTeX Math"
+    },
+    bom: [
+      "Moteur In-Browser WebGPU & WebLLM (LLaMA / Mistral / Gemma)",
+      "Serveur Backend Python FastAPI & Service Local Ollama",
+      "Moteur de Recherche Sémantique RAG & Vector Embeddings",
+      "Module de Rendu LaTeX MathJax & Highlighting Code Prism.js",
+      "Interface Voice-to-Text & Synthesizer Text-to-Speech Web Speech API",
+      "Bibliothèque de Prompt Templates & Télémétrie en Temps Réel"
+    ],
+    gallery: [
+      { url: getUrl("images/equium_qt_dashboard.png"), caption: "Interface AURA Local LLM Studio : Studio d'IA Générative Local, Télémétrie & Moteur RAG" }
+    ]
+  },
+  {
     id: "esp32-c3-iot-pcb",
     title: "Carte IoT Sur-Mesure ESP32-C3 & Gestion d'Énergie TP4056",
     category: "Électronique PCB & IoT",
