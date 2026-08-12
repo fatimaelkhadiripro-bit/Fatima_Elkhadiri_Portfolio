@@ -18,7 +18,7 @@
   <!-- Application Styles -->
   
   
-  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/index-771690a0.js"></script>
+  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/index-997fef2f.js"></script>
   <link rel="stylesheet" href="/Fatima_Elkhadiri_Portfolio/assets/index-115ec61c.css">
 </head>
 <body>
@@ -111,17 +111,33 @@
       </div>
     </section>
 
-    <!-- Embedded Projects Showcase Section -->
+    <!-- Embedded Projects Showcase Section (Divided into 3 Subsections) -->
     <section id="projects" style="background:var(--bg-secondary); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
       <div class="container">
         <div class="section-header">
           <div class="section-tag"><span class="dot"></span> Réalisations Technologiques</div>
-          <h2 class="section-title">Projets Systèmes Embarqués & Robotique</h2>
-          <p class="section-subtitle">Découvrez mes travaux en perception ADAS (Manitou), carte électronique & firmware moteur (Equium), nœuds IoT satellitaires (CNRS) et IA médicale.</p>
+          <h2 class="section-title">Projets Systèmes Embarqués, IA & Robotique</h2>
+          <p class="section-subtitle">Découvrez mes réalisations structurées en 3 sous-domaines d'expertise : Électronique, IA & Vision par Ordinateur, et Robotique.</p>
+
+          <!-- Interactive Category Filter Tabs -->
+          <div id="project-filter-tabs" style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
+            <button class="project-tab-btn active" data-section="all" style="padding:0.65rem 1.35rem; border-radius:30px; font-family:var(--font-mono); font-size:0.85rem; font-weight:700; cursor:pointer; transition:all 0.25s ease; border:1px solid var(--cyan-glow); background:var(--cyan-glow); color:#000;">
+              ⚡ Tous les Projets (8)
+            </button>
+            <button class="project-tab-btn" data-section="electronics" style="padding:0.65rem 1.35rem; border-radius:30px; font-family:var(--font-mono); font-size:0.85rem; font-weight:700; cursor:pointer; transition:all 0.25s ease; border:1px solid var(--border-color); background:rgba(0,0,0,0.4); color:var(--text-main);">
+              🔌 Électronique & PCB (4)
+            </button>
+            <button class="project-tab-btn" data-section="ai-vision" style="padding:0.65rem 1.35rem; border-radius:30px; font-family:var(--font-mono); font-size:0.85rem; font-weight:700; cursor:pointer; transition:all 0.25s ease; border:1px solid var(--border-color); background:rgba(0,0,0,0.4); color:var(--text-main);">
+              🧠 IA & Vision par Ordinateur (3)
+            </button>
+            <button class="project-tab-btn" data-section="robotics" style="padding:0.65rem 1.35rem; border-radius:30px; font-family:var(--font-mono); font-size:0.85rem; font-weight:700; cursor:pointer; transition:all 0.25s ease; border:1px solid var(--border-color); background:rgba(0,0,0,0.4); color:var(--text-main);">
+              🤖 Robotique (1)
+            </button>
+          </div>
         </div>
 
-        <div id="projects-grid" class="projects-grid">
-          <!-- Dynamically populated by app.js & projectsData.js -->
+        <div id="projects-container" style="display:flex; flex-direction:column; gap:3.5rem;">
+          <!-- Dynamically populated by app.js grouped into 3 subsections -->
         </div>
       </div>
     </section>
