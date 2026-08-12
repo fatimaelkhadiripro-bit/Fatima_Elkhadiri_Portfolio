@@ -1,35 +1,17 @@
 const getUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
+export const projectSections = [
+  { id: "all", label: "⚡ Tous les Projets" },
+  { id: "electronics", label: "🔌 Électronique & PCB", title: "Projets Électronique & CAO PCB", desc: "Conception électronique de cartes, routage PCB KiCad multi-couches, firmware C/STM32, VHDL/FPGA & gestion d'énergie." },
+  { id: "ai-vision", label: "🧠 IA & Vision par Ordinateur", title: "Projets IA, MLOps & Vision Embarquée", desc: "Perception ADAS sur NVIDIA Jetson/ROS2, segmentation d'imagerie médicale PyTorch & studio LLM local WebGPU/RAG." },
+  { id: "robotics", label: "🤖 Robotique & Automatique", title: "Projets Robotique Humanoïde & Autonome", desc: "Commande cinématique, modélisation géométrique et perception temps réel sur plateforme robotique humanoïde Pepper." }
+];
+
 export const embeddedProjects = [
-  {
-    id: "aura-local-llm-studio",
-    title: "AURA Local LLM Studio — Studio d'IA Générative Local & RAG",
-    category: "IA Générative, WebGPU & MLOps",
-    badge: "WebGPU / Ollama & Python",
-    image: getUrl("images/aura_llm_studio_app.png"),
-    description: "Application web privée et haute performance conçue pour exécuter des modèles de langage (LLM) à 100% en local sans aucune dépendance cloud. Architecture multi-moteurs (Python natif, WebGPU navigateur & Ollama), moteur RAG (Retrieval-Augmented Generation) pour la recherche sémantique sur documents PDF/code avec citations de pages, télémétrie en temps réel (tok/s, latence), rendu Markdown/LaTeX, dictée vocale et synthèse audio.",
-    specs: {
-      Architecture: "Multi-Engine (WebGPU, Ollama, Python)",
-      RAG: "In-Browser RAG (PDF & Code Citations)",
-      Privacy: "100% Local & Privacy-First (0 Cloud)",
-      Telemetry: "Real-time Metrics (tok/s & Latency)",
-      Audio: "Voice Dictation & Text-to-Speech",
-      Interface: "Dark Glassmorphism & LaTeX Math"
-    },
-    bom: [
-      "Moteur In-Browser WebGPU & WebLLM (LLaMA / Mistral / Gemma)",
-      "Serveur Backend Python FastAPI & Service Local Ollama",
-      "Moteur de Recherche Sémantique RAG & Vector Embeddings",
-      "Module de Rendu LaTeX MathJax & Highlighting Code Prism.js",
-      "Interface Voice-to-Text & Synthesizer Text-to-Speech Web Speech API",
-      "Bibliothèque de Prompt Templates & Télémétrie en Temps Réel"
-    ],
-    gallery: [
-      { url: getUrl("images/aura_llm_studio_app.png"), caption: "Interface AURA LLM Studio : Studio d'IA Générative Local, Moteur Python Local & Télémétrie" }
-    ]
-  },
+  // SECTION 1: ÉLECTRONIQUE (ELECTRONICS)
   {
     id: "esp32-c3-iot-pcb",
+    section: "electronics",
     title: "Carte IoT Sur-Mesure ESP32-C3 & Gestion d'Énergie TP4056",
     category: "Électronique PCB & IoT",
     badge: "KiCad & ESP32-C3",
@@ -56,32 +38,8 @@ export const embeddedProjects = [
     ]
   },
   {
-    id: "adas-jetson-vision",
-    title: "Perception ADAS & Vision Embarquée sur Engins Industriels",
-    category: "ROS2 & NVIDIA Jetson",
-    badge: "Manitou Group / ROS2",
-    image: getUrl("images/manitou_adas_fov_coverage.png"),
-    description: "Système de perception artificielle et sécurité ADAS. Traitement d'images fisheye avec rectification géométrique, projection du nuage de points radars et détection d'objets par Deep Learning accéléré sous CUDA.",
-    specs: {
-      Platform: "NVIDIA Jetson Orin / Xavier",
-      Framework: "ROS2 Humble / C++20",
-      Accelerate: "NVIDIA CUDA / TensorRT",
-      Sensors: "Fisheye Cam + Radar"
-    },
-    bom: [
-      "NVIDIA Jetson Embedded AI Board",
-      "Wide-Angle Automotive Fisheye Camera",
-      "Industrial FMCW Radar Module",
-      "CAN-Bus Interface Shield",
-      "Docker Container Environment"
-    ],
-    gallery: [
-      { url: getUrl("images/manitou_adas_fov_coverage.png"), caption: "Couverture des Zones de Détection (FOV Caméras Fisheye & Radars FMCW) et Sécurité Piétons sur Engin Manitou" },
-      { url: getUrl("images/simplescreenrecorder-2026-07-21_16.11.03.mp4"), caption: "🎥 Démonstration Vidéo : Perception ADAS, Rectification Fisheye & Stitching" }
-    ]
-  },
-  {
     id: "equium-linear-motor",
+    section: "electronics",
     title: "Carte Électronique de Contrôle-Commande & Routage PCB KiCad",
     category: "Électronique & Firmware STM32",
     badge: "Equium / KiCad & C",
@@ -110,6 +68,7 @@ export const embeddedProjects = [
   },
   {
     id: "satellite-iot-node",
+    section: "electronics",
     title: "Nœuds Satellitaires IoT Ultra-Basse Consommation",
     category: "IoT Satellitaire & PCB",
     badge: "CNRS Institut Pascal",
@@ -139,7 +98,59 @@ export const embeddedProjects = [
     ]
   },
   {
+    id: "fpga-imu-processor",
+    section: "electronics",
+    title: "Centrale Inertielle (IMU) sur FPGA en VHDL",
+    category: "VHDL & FPGA Hardware",
+    badge: "VHDL / FPGA",
+    image: getUrl("images/fpga_de10_lite_imu.png"),
+    description: "Conception et implémentation complète en VHDL d'un processeur dédié au traitement rapide des données d'une centrale inertielle 9-axes (Accéléromètre, Gyroscope, Magnétomètre) sur carte Terasic DE10-Lite.",
+    specs: {
+      Language: "VHDL-2008",
+      Hardware: "FPGA Terasic DE10-Lite (MAX 10)",
+      Interface: "SPI Master Hardware",
+      Filter: "Fixed-Point Math Pipeline"
+    },
+    bom: [
+      "Carte de Développement FPGA Terasic DE10-Lite",
+      "Capteur IMU 9-Axes MPU-9250 / SPI",
+      "Afficheurs 7-Séquences LED & Switches"
+    ],
+    gallery: [
+      { url: getUrl("images/fpga_de10_lite_imu.png"), caption: "Test & Démonstration du Processeur VHDL sur Carte FPGA Terasic DE10-Lite (Affichage 7-Séquences des Mesures Angle/Accélération IMU)" }
+    ]
+  },
+
+  // SECTION 2: IA & VISION PAR ORDINATEUR (AI & COMPUTER VISION)
+  {
+    id: "adas-jetson-vision",
+    section: "ai-vision",
+    title: "Perception ADAS & Vision Embarquée sur Engins Industriels",
+    category: "ROS2 & NVIDIA Jetson",
+    badge: "Manitou Group / ROS2",
+    image: getUrl("images/manitou_adas_fov_coverage.png"),
+    description: "Système de perception artificielle et sécurité ADAS. Traitement d'images fisheye avec rectification géométrique, projection du nuage de points radars et détection d'objets par Deep Learning accéléré sous CUDA.",
+    specs: {
+      Platform: "NVIDIA Jetson Orin / Xavier",
+      Framework: "ROS2 Humble / C++20",
+      Accelerate: "NVIDIA CUDA / TensorRT",
+      Sensors: "Fisheye Cam + Radar"
+    },
+    bom: [
+      "NVIDIA Jetson Embedded AI Board",
+      "Wide-Angle Automotive Fisheye Camera",
+      "Industrial FMCW Radar Module",
+      "CAN-Bus Interface Shield",
+      "Docker Container Environment"
+    ],
+    gallery: [
+      { url: getUrl("images/manitou_adas_fov_coverage.png"), caption: "Couverture des Zones de Détection (FOV Caméras Fisheye & Radars FMCW) et Sécurité Piétons sur Engin Manitou" },
+      { url: getUrl("images/simplescreenrecorder-2026-07-21_16.11.03.mp4"), caption: "🎥 Démonstration Vidéo : Perception ADAS, Rectification Fisheye & Stitching" }
+    ]
+  },
+  {
     id: "liver-segmentation-dl",
+    section: "ai-vision",
     title: "Segmentation du Foie Humain par Apprentissage Continu",
     category: "Deep Learning & MLOps",
     badge: "PyTorch & Medical AI",
@@ -162,7 +173,38 @@ export const embeddedProjects = [
     ]
   },
   {
+    id: "aura-local-llm-studio",
+    section: "ai-vision",
+    title: "AURA Local LLM Studio — Studio d'IA Générative Local & RAG",
+    category: "IA Générative, WebGPU & MLOps",
+    badge: "WebGPU / Ollama & Python",
+    image: getUrl("images/aura_llm_studio_app.png"),
+    description: "Application web privée et haute performance conçue pour exécuter des modèles de langage (LLM) à 100% en local sans aucune dépendance cloud. Architecture multi-moteurs (Python natif, WebGPU navigateur & Ollama), moteur RAG (Retrieval-Augmented Generation) pour la recherche sémantique sur documents PDF/code avec citations de pages, télémétrie en temps réel (tok/s, latence), rendu Markdown/LaTeX, dictée vocale et synthèse audio.",
+    specs: {
+      Architecture: "Multi-Engine (WebGPU, Ollama, Python)",
+      RAG: "In-Browser RAG (PDF & Code Citations)",
+      Privacy: "100% Local & Privacy-First (0 Cloud)",
+      Telemetry: "Real-time Metrics (tok/s & Latency)",
+      Audio: "Voice Dictation & Text-to-Speech",
+      Interface: "Dark Glassmorphism & LaTeX Math"
+    },
+    bom: [
+      "Moteur In-Browser WebGPU & WebLLM (LLaMA / Mistral / Gemma)",
+      "Serveur Backend Python FastAPI & Service Local Ollama",
+      "Moteur de Recherche Sémantique RAG & Vector Embeddings",
+      "Module de Rendu LaTeX MathJax & Highlighting Code Prism.js",
+      "Interface Voice-to-Text & Synthesizer Text-to-Speech Web Speech API",
+      "Bibliothèque de Prompt Templates & Télémétrie en Temps Réel"
+    ],
+    gallery: [
+      { url: getUrl("images/aura_llm_studio_app.png"), caption: "Interface AURA LLM Studio : Studio d'IA Générative Local, Moteur Python Local & Télémétrie" }
+    ]
+  },
+
+  // SECTION 3: ROBOTIQUE (ROBOTICS)
+  {
     id: "pepper-robot-imitation",
+    section: "robotics",
     title: "Imitation des Gestes Humains par Robot Humanoïde Pepper",
     category: "Robotique Humanoïde & Vision",
     badge: "Robot Pepper / Perception",
@@ -183,28 +225,6 @@ export const embeddedProjects = [
     pdfTitle: "Rapport_projet_Miroir_Pepper_GE5A.pdf",
     gallery: [
       { url: getUrl("images/pepper_robot_test_miroir.png"), caption: "Test Miroir Pepper & Prise d'un Objet : Suivi de Squelette / Pose Humaine en Temps Réel et Commande Articulaire du Robot Pepper" }
-    ]
-  },
-  {
-    id: "fpga-imu-processor",
-    title: "Centrale Inertielle (IMU) sur FPGA en VHDL",
-    category: "VHDL & FPGA Hardware",
-    badge: "VHDL / FPGA",
-    image: getUrl("images/fpga_de10_lite_imu.png"),
-    description: "Conception et implémentation complète en VHDL d'un processeur dédié au traitement rapide des données d'une centrale inertielle 9-axes (Accéléromètre, Gyroscope, Magnétomètre) sur carte Terasic DE10-Lite.",
-    specs: {
-      Language: "VHDL-2008",
-      Hardware: "FPGA Terasic DE10-Lite (MAX 10)",
-      Interface: "SPI Master Hardware",
-      Filter: "Fixed-Point Math Pipeline"
-    },
-    bom: [
-      "Carte de Développement FPGA Terasic DE10-Lite",
-      "Capteur IMU 9-Axes MPU-9250 / SPI",
-      "Afficheurs 7-Séquences LED & Switches"
-    ],
-    gallery: [
-      { url: getUrl("images/fpga_de10_lite_imu.png"), caption: "Test & Démonstration du Processeur VHDL sur Carte FPGA Terasic DE10-Lite (Affichage 7-Séquences des Mesures Angle/Accélération IMU)" }
     ]
   }
 ];

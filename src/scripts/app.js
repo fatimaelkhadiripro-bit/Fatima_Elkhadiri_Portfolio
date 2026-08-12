@@ -1,63 +1,114 @@
 import { bioData, skillsCategories, experienceTimeline, educationList, certificationsAndLanguages } from './data.js';
-import { embeddedProjects } from './projectsData.js';
+import { embeddedProjects, projectSections } from './projectsData.js';
 import { PCBViewerModal } from './pcbViewer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize PCB Modal Inspector
   const pcbModal = new PCBViewerModal('modal-overlay');
 
-  // Render Projects Grid
-  const projectsGrid = document.getElementById('projects-grid');
-  if (projectsGrid) {
-    projectsGrid.innerHTML = embeddedProjects.map(proj => `
-      <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="${proj.image}" alt="${proj.title}">
-          <div class="project-badge">${proj.badge}</div>
+  const renderSingleProjectCard = (proj) => `
+    <div class="project-card">
+      <div class="project-img-wrapper">
+        <img src="${proj.image}" alt="${proj.title}">
+        <div class="project-badge">${proj.badge}</div>
+      </div>
+      <div class="project-body">
+        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-glow); margin-bottom:0.25rem;">
+          ${proj.category.toUpperCase()}
         </div>
-        <div class="project-body">
-          <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-glow); margin-bottom:0.25rem;">
-            ${proj.category.toUpperCase()}
-          </div>
-          <h3 class="project-title">${proj.title}</h3>
-          <p class="project-desc">${proj.description}</p>
-          
-          <div class="project-specs">
-            ${Object.entries(proj.specs).map(([k, v]) => `
-              <div class="spec-item">
-                <span class="spec-label">${k}:</span>
-                <span class="spec-val">${v}</span>
-              </div>
-            `).join('')}
-          </div>
+        <h3 class="project-title">${proj.title}</h3>
+        <p class="project-desc">${proj.description}</p>
+        
+        <div class="project-specs">
+          ${Object.entries(proj.specs).map(([k, v]) => `
+            <div class="spec-item">
+              <span class="spec-label">${k}:</span>
+              <span class="spec-val">${v}</span>
+            </div>
+          `).join('')}
+        </div>
 
-          <div class="project-actions" style="flex-direction:column; gap:0.5rem;">
-            <button class="btn btn-primary open-pcb-btn" data-project="${proj.id}" style="width:100%;">
-              ⚡ Galerie & Schéma (${proj.gallery ? proj.gallery.length : 1})
-            </button>
-            ${proj.cadlabUrl ? `
-              <a href="${proj.cadlabUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
-                🔗 Voir sur CADLAB.io
-              </a>
-            ` : ''}
-            ${proj.pdfReport ? `
-              <a href="${proj.pdfReport}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
-                📄 Rapport PDF (${proj.pdfTitle})
-              </a>
-            ` : ''}
-          </div>
+        <div class="project-actions" style="flex-direction:column; gap:0.5rem;">
+          <button class="btn btn-primary open-pcb-btn" data-project="${proj.id}" style="width:100%;">
+            ⚡ Galerie & Médias (${proj.gallery ? proj.gallery.length : 1})
+          </button>
+          ${proj.cadlabUrl ? `
+            <a href="${proj.cadlabUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
+              🔗 Voir sur CADLAB.io
+            </a>
+          ` : ''}
+          ${proj.pdfReport ? `
+            <a href="${proj.pdfReport}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
+              📄 Rapport PDF (${proj.pdfTitle})
+            </a>
+          ` : ''}
         </div>
       </div>
-    `).join('');
+    </div>
+  `;
 
-    // Attach project click listeners
+  const renderProjectsBySection = (filterSection = 'all') => {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
+    let sectionsToRender = projectSections.filter(s => s.id !== 'all');
+    if (filterSection !== 'all') {
+      sectionsToRender = sectionsToRender.filter(s => s.id === filterSection);
+    }
+
+    container.innerHTML = sectionsToRender.map(sec => {
+      const secProjects = embeddedProjects.filter(p => p.section === sec.id);
+      if (secProjects.length === 0) return '';
+
+      return `
+        <div class="project-subsection" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div style="border-left:4px solid var(--cyan-glow); padding:0.85rem 1.25rem; background:rgba(0,240,255,0.03); border-radius:0 8px 8px 0; border:1px solid rgba(0,240,255,0.1); border-left-width:4px;">
+            <h3 style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--cyan-glow); display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
+              ${sec.title} <span style="font-size:0.85rem; color:var(--text-dim); font-weight:400;">(${secProjects.length} projet${secProjects.length > 1 ? 's' : ''})</span>
+            </h3>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">${sec.desc}</p>
+          </div>
+
+          <div class="projects-grid">
+            ${secProjects.map(proj => renderSingleProjectCard(proj)).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Re-attach project click listeners
     document.querySelectorAll('.open-pcb-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const projId = btn.getAttribute('data-project');
         pcbModal.openModal(projId);
       });
     });
-  }
+  };
+
+  // Initial render of all sections
+  renderProjectsBySection('all');
+
+  // Filter Tabs Event Listeners
+  const tabBtns = document.querySelectorAll('.project-tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sectionId = btn.getAttribute('data-section');
+      
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'rgba(0,0,0,0.4)';
+        b.style.color = 'var(--text-main)';
+        b.style.borderColor = 'var(--border-color)';
+      });
+
+      btn.classList.add('active');
+      btn.style.background = 'var(--cyan-glow)';
+      btn.style.color = '#000';
+      btn.style.borderColor = 'var(--cyan-glow)';
+
+      renderProjectsBySection(sectionId);
+    });
+  });
 
   // Render Skills Matrix (Clean competency cards WITHOUT PERCENTAGES)
   const skillsContainer = document.getElementById('skills-matrix-grid');
