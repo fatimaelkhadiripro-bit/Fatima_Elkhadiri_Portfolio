@@ -3,7 +3,7 @@ const getUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 export const projectSections = [
   { id: "all", label: "⚡ Tous les Projets" },
   { id: "electronics", label: "🔌 Électronique & PCB", title: "Projets Électronique & CAO PCB", desc: "Conception électronique de cartes, routage PCB KiCad multi-couches, firmware C/STM32, VHDL/FPGA & gestion d'énergie." },
-  { id: "ai-vision", label: "🧠 IA & Vision par Ordinateur", title: "Projets IA, MLOps & Vision Embarquée", desc: "Perception ADAS sur NVIDIA Jetson/ROS2, segmentation d'imagerie médicale PyTorch & studio LLM local WebGPU/RAG." },
+  { id: "ai-vision", label: "🧠 IA, MLOps & Vision", title: "Projets IA, MLOps & Vision Embarquée", desc: "Modèles de régression CatBoost & MLOps, perception ADAS sur NVIDIA Jetson/ROS2, segmentation médicale PyTorch & studio LLM local WebGPU/RAG." },
   { id: "robotics", label: "🤖 Robotique & Automatique", title: "Projets Robotique Humanoïde & Autonome", desc: "Commande cinématique, modélisation géométrique et perception temps réel sur plateforme robotique humanoïde Pepper." }
 ];
 
@@ -121,7 +121,34 @@ export const embeddedProjects = [
     ]
   },
 
-  // SECTION 2: IA & VISION PAR ORDINATEUR (AI & COMPUTER VISION)
+  // SECTION 2: IA, MLOPS & VISION PAR ORDINATEUR (AI & COMPUTER VISION)
+  {
+    id: "airbnb-price-prediction",
+    section: "ai-vision",
+    title: "Airbnb Price Prediction — Prédiction de Prix par Machine Learning Full-Stack",
+    category: "Machine Learning & MLOps",
+    badge: "CatBoost & Flask / Scikit-Learn",
+    image: getUrl("images/airbnb_price_prediction_app.png"),
+    description: "Projet Machine Learning full-stack prédisant le prix optimal par nuitée d'une annonce Airbnb. Traitement d'un jeu de données réel de plus de 100 000 annonces réparties sur 6 métropoles américaines (NYC, LA, SF, DC, Chicago, Boston). Évaluation comparative de 7 modèles de régression (Linear, Lasso, Ridge, ElasticNet, Random Forest, Gradient Boosting, CatBoost). Modèle CatBoost retenu (R² = 0.70), sérialisé sous format Pickle et déployé via une application web Flask interactive.",
+    specs: {
+      Dataset: "100,000+ Listings (6 US Cities)",
+      BestModel: "CatBoost Regressor (R² = 0.70)",
+      ModelsTested: "7 Regressors (Random Forest, CatBoost...)",
+      Pipeline: "Custom Scikit-Learn Preprocessing",
+      WebStack: "Flask RESTful API + Frontend UI",
+      Inference: "Real-time Serialized Pickle Model"
+    },
+    bom: [
+      "Algorithme Gradient Boosting CatBoost Regressor (Score R² = 0.70)",
+      "Pipeline Scikit-Learn de Prétraitement (Imputer, Encoder, Scaler)",
+      "Jeu de Données 100k+ Annonces Airbnb (NYC, LA, SF, DC, Boston, Chicago)",
+      "Application Web Backend Flask Python & Modèle Sérialisé Pickle",
+      "Interface Utilisateur Interactive de Saisie des Caractéristiques & Inférence Temps Réel"
+    ],
+    gallery: [
+      { url: getUrl("images/airbnb_price_prediction_app.png"), caption: "Interface Web Flask Airbnb Price Prediction : Saisie des Caractéristiques du Logement & Inférence ML en Temps Réel" }
+    ]
+  },
   {
     id: "adas-jetson-vision",
     section: "ai-vision",
