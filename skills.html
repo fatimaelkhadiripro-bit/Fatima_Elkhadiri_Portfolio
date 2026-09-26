@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Compétences - Fatima Elkhadiri</title>
+  <meta name="description" content="Matrice des compétences techniques de Fatima Elkhadiri : C/C++, Python, ROS2, FreeRTOS, STM32, KiCad CAO PCB, CUDA, IVVQ.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Application Styles -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="./src/styles/components.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav">
+    <div class="telemetry-ticker">
+      <div class="telemetry-item">
+        <span class="status-indicator"></span>
+        <span>FATIMA ELKHADIRI</span>
+      </div>
+      <div class="telemetry-item">
+        <span>RÉSIDENCE: <strong style="color:var(--text-main);">FRANCE (MOBILITÉ NATIONALE)</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span>DISPONIBILITÉ: <strong style="color:var(--green-glow);">IMMÉDIATE (CDI)</strong></span>
+      </div>
+    </div>
+
+    <div class="nav-content">
+      <a href="./index.html" class="brand">
+        FATIMA ELKHADIRI <span class="brand-dot"></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="./index.html" class="nav-link">Accueil</a></li>
+        <li><a href="./projects.html" class="nav-link">Projets</a></li>
+        <li><a href="./skills.html" class="nav-link active">Compétences</a></li>
+        <li><a href="./experience.html" class="nav-link">Parcours</a></li>
+        <li><a href="./contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="./contact.html" class="btn btn-primary">Me Contacter</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Skills Page Header -->
+    <section style="background:var(--bg-secondary); border-bottom:1px solid var(--border-color); padding-top:4rem; padding-bottom:3.5rem;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom:0;">
+          <div class="section-tag"><span class="dot"></span> Domaine d'Expertise</div>
+          <h1 class="section-title">Matrice des Compétences Techniques</h1>
+          <p class="section-subtitle">Savoir-faire structuré : C/C++/Python, Linux embarqué, ROS2, FreeRTOS, CAO PCB KiCad, MLOps, protocoles et tests IVVQ.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Matrix Grid -->
+    <section class="container" style="padding-top:4rem; padding-bottom:5rem;">
+      <div id="skills-matrix-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.75rem;">
+        <!-- Dynamically populated by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding:2.5rem 0; text-align:center; font-family:var(--font-mono); font-size:0.82rem; color:var(--text-dim); border-top:1px solid var(--border-color);">
+    <div class="container">
+      <p>© 2026 Fatima Elkhadiri. Portfolio Ingénieure Systèmes Embarqués, Robotique & Vision.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Container for PCB & Code Inspector -->
+  <div id="modal-overlay" class="modal-overlay"></div>
+
+  <!-- Main JavaScript Module -->
+  <script type="module" src="./src/scripts/app.js"></script>
+</body>
+</html>

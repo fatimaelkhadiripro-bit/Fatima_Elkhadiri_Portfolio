@@ -47,6 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
 
+  // 1. Featured Projects Showcase (Home Page index.html)
+  const featuredContainer = document.getElementById('featured-projects-grid');
+  if (featuredContainer) {
+    // Select top 3 featured projects
+    const featuredProjects = embeddedProjects.filter(p => 
+      ['adas-jetson-vision', 'equium-linear-motor', 'esp32-c3-iot-pcb'].includes(p.id)
+    );
+    featuredContainer.innerHTML = featuredProjects.map(proj => renderSingleProjectCard(proj)).join('');
+
+    document.querySelectorAll('.open-pcb-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const projId = btn.getAttribute('data-project');
+        pcbModal.openModal(projId);
+      });
+    });
+  }
+
+  // 2. Full Projects Page (projects.html)
   const renderProjectsBySection = (filterSection = 'all') => {
     const container = document.getElementById('projects-container');
     if (!container) return;
@@ -62,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return `
         <div class="project-subsection" style="display:flex; flex-direction:column; gap:1.5rem;">
-          <div style="border-left:3px solid var(--cyan-glow); padding:0.85rem 1.25rem; background:rgba(255,255,255,0.02); border-radius:0 10px 10px 0; border:1px solid var(--border-color); border-left-width:3px;">
+          <div style="border-left:3px solid var(--cyan-glow); padding:0.85rem 1.25rem; background:rgba(18, 30, 54, 0.4); border-radius:0 10px 10px 0; border:1px solid var(--border-color); border-left-width:3px;">
             <h3 style="font-family:var(--font-sans); font-size:1.3rem; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
               ${sec.title} <span style="font-size:0.85rem; color:var(--text-dim); font-weight:400; font-family:var(--font-mono);">(${secProjects.length} projet${secProjects.length > 1 ? 's' : ''})</span>
             </h3>
@@ -85,32 +103,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Initial render of all sections
-  renderProjectsBySection('all');
+  // Initial render on projects.html
+  if (document.getElementById('projects-container')) {
+    renderProjectsBySection('all');
 
-  // Filter Tabs Event Listeners
-  const tabBtns = document.querySelectorAll('.project-tab-btn');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const sectionId = btn.getAttribute('data-section');
-      
-      tabBtns.forEach(b => {
-        b.classList.remove('active');
-        b.style.background = 'rgba(255,255,255,0.03)';
-        b.style.color = 'var(--text-muted)';
-        b.style.borderColor = 'var(--border-color)';
+    // Filter Tabs Event Listeners
+    const tabBtns = document.querySelectorAll('.project-tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sectionId = btn.getAttribute('data-section');
+        
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.style.background = 'rgba(18, 30, 54, 0.4)';
+          b.style.color = 'var(--text-muted)';
+          b.style.borderColor = 'var(--border-color)';
+        });
+
+        btn.classList.add('active');
+        btn.style.background = 'var(--cyan-glow)';
+        btn.style.color = '#060b17';
+        btn.style.borderColor = 'var(--cyan-glow)';
+
+        renderProjectsBySection(sectionId);
       });
-
-      btn.classList.add('active');
-      btn.style.background = 'var(--cyan-glow)';
-      btn.style.color = '#0b0f17';
-      btn.style.borderColor = 'var(--cyan-glow)';
-
-      renderProjectsBySection(sectionId);
     });
-  });
+  }
 
-  // Render Skills Matrix (Clean competency cards WITHOUT PERCENTAGES)
+  // 3. Render Skills Matrix (skills.html)
   const skillsContainer = document.getElementById('skills-matrix-grid');
   if (skillsContainer) {
     skillsContainer.innerHTML = skillsCategories.map(cat => `
@@ -120,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </h3>
         <div style="display:flex; flex-direction:column; gap:0.75rem;">
           ${cat.items.map(item => `
-            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); border-radius:8px; padding:0.65rem 0.9rem;">
+            <div style="background:rgba(18, 30, 54, 0.4); border:1px solid var(--border-color); border-radius:8px; padding:0.65rem 0.9rem;">
               <div style="font-family:var(--font-sans); font-size:0.9rem; font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:0.4rem;">
                 <span style="color:var(--green-glow);">✓</span> ${item.name}
               </div>
@@ -134,13 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Render Experience Timeline
+  // 4. Render Experience Timeline (experience.html)
   const timelineContainer = document.getElementById('timeline-container');
   if (timelineContainer) {
     timelineContainer.innerHTML = experienceTimeline.map((item, idx) => `
       <div style="position:relative; padding-left:2.5rem; margin-bottom:2.5rem;">
         <div style="position:absolute; left:0; top:4px; width:12px; height:12px; border-radius:50%; background:var(--cyan-glow); border:2px solid var(--bg-primary);"></div>
-        ${idx !== experienceTimeline.length - 1 ? '<div style="position:absolute; left:5px; top:18px; bottom:-30px; width:2px; background:rgba(255,255,255,0.08);"></div>' : ''}
+        ${idx !== experienceTimeline.length - 1 ? '<div style="position:absolute; left:5px; top:18px; bottom:-30px; width:2px; background:rgba(0,240,255,0.15);"></div>' : ''}
         
         <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan-glow); margin-bottom:0.25rem; font-weight:600;">${item.period}</div>
         <h3 style="font-size:1.2rem; font-weight:700; color:var(--text-main);">${item.role} <span style="color:var(--text-muted); font-size:0.95rem; font-weight:400;">@ ${item.company}</span></h3>
@@ -152,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Render Education & Diplomas
+  // 5. Render Education & Diplomas (experience.html)
   const educationContainer = document.getElementById('education-container');
   if (educationContainer) {
     educationContainer.innerHTML = educationList.map(edu => `
@@ -165,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Web3Forms AJAX Contact Form Handler
+  // 6. Web3Forms AJAX Contact Form Handler (contact.html)
   const contactForm = document.getElementById('hex-contact-form');
   const btn = document.getElementById('contact-submit-btn');
 
@@ -190,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.success) {
           btn.textContent = '✓ MESSAGE TRANSMIS À FATIMA (REÇU SUR GMAIL) !';
           btn.style.background = 'var(--green-glow)';
-          btn.style.color = '#0b0f17';
+          btn.style.color = '#060b17';
           contactForm.reset();
 
           setTimeout(() => {
