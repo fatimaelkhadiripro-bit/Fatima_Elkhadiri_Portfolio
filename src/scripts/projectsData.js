@@ -90,7 +90,7 @@ export const embeddedProjects = [
     pdfReport: getUrl("docs/Rapport_de_stage_LPCA.pdf"),
     pdfTitle: "Rapport_de_stage_LPCA.pdf",
     gallery: [
-      { url: getUrl("images/sat_field_deployment.jpg"), caption: "Station de Mesure & Nœud Satellitaire Déployé en Condition Réelle (Boîtier IP67 sur Lac / Tourbière — Projet ANR SPAGNETO)" },
+      { url: getUrl("images/sat_field_deployment.jpg"), caption: "Station de Mesure & Nœud Satellitaire Déployé en Condition Réelle (Boîtier IP67 sur Lac / Tourbière - Projet ANR SPAGNETO)" },
       { url: getUrl("images/sat_hardware_architecture.png"), caption: "Architecture Matérielle Globale (STM32L073RZ, Modem Kinéis, Capteurs I2C/GPS/SPI SD & Diviseur de Tension Batterie)" },
       { url: getUrl("images/sat_usb_protection_schematic.png"), caption: "Schéma KiCad : Connecteur USB & Puce de Protection ESD TPD4S014DSQR" },
       { url: getUrl("images/sat_battery_charger_schematic.png"), caption: "Schéma KiCad : Gestion d'Alimentation Solaire / USB & Chargeur Batterie Li-Ion BQ24210" },
@@ -125,7 +125,7 @@ export const embeddedProjects = [
   {
     id: "airbnb-price-prediction",
     section: "ai-vision",
-    title: "Airbnb Price Prediction — Prédiction de Prix par Machine Learning Full-Stack",
+    title: "Airbnb Price Prediction - Prédiction de Prix par Machine Learning Full-Stack",
     category: "Machine Learning & MLOps",
     badge: "CatBoost & Flask / Scikit-Learn",
     image: getUrl("images/airbnb_price_prediction_app.png"),
@@ -202,7 +202,7 @@ export const embeddedProjects = [
   {
     id: "aura-local-llm-studio",
     section: "ai-vision",
-    title: "AURA Local LLM Studio — Studio d'IA Générative Local & RAG",
+    title: "AURA Local LLM Studio - Studio d'IA Générative Local & RAG",
     category: "IA Générative, WebGPU & MLOps",
     badge: "WebGPU / Ollama & Python",
     image: getUrl("images/aura_llm_studio_app.png"),
