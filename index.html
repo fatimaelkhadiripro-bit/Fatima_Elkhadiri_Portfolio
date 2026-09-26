@@ -18,8 +18,8 @@
   <!-- Application Styles -->
   
   
-  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/index-7bf282b0.js"></script>
-  <link rel="stylesheet" href="/Fatima_Elkhadiri_Portfolio/assets/index-7b2aeeb5.css">
+  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/app-3d68bc08.js"></script>
+  <link rel="stylesheet" href="/Fatima_Elkhadiri_Portfolio/assets/app-7b2aeeb5.css">
 </head>
 <body>
 
@@ -39,19 +39,20 @@
     </div>
 
     <div class="nav-content">
-      <a href="#hero" class="brand">
+      <a href="./index.html" class="brand">
         FATIMA ELKHADIRI <span class="brand-dot"></span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#projects" class="nav-link">Projets</a></li>
-        <li><a href="#skills" class="nav-link">Compétences</a></li>
-        <li><a href="#experience" class="nav-link">Expériences & Diplômes</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="./index.html" class="nav-link active">Accueil</a></li>
+        <li><a href="./projects.html" class="nav-link">Projets</a></li>
+        <li><a href="./skills.html" class="nav-link">Compétences</a></li>
+        <li><a href="./experience.html" class="nav-link">Parcours</a></li>
+        <li><a href="./contact.html" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="header-actions">
-        <a href="#contact" class="btn btn-primary">Me Contacter</a>
+        <a href="./contact.html" class="btn btn-primary">Me Contacter</a>
       </div>
     </div>
   </header>
@@ -83,8 +84,8 @@
           </div>
 
           <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">Découvrir les Projets</a>
-            <a href="#contact" class="btn btn-amber">📧 Me Contacter (Opportunité CDI)</a>
+            <a href="./projects.html" class="btn btn-primary">Voir tous les Projets</a>
+            <a href="./contact.html" class="btn btn-amber">📧 Me Contacter (Opportunité CDI)</a>
           </div>
         </div>
 
@@ -111,123 +112,23 @@
       </div>
     </section>
 
-    <!-- Embedded Projects Showcase Section (Divided into 3 Subsections) -->
-    <section id="projects" style="background:var(--bg-secondary); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
+    <!-- Featured Projects Teaser Section -->
+    <section style="background:var(--bg-secondary); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag"><span class="dot"></span> Réalisations Technologiques</div>
-          <h2 class="section-title">Projets Systèmes Embarqués, IA & Robotique</h2>
-          <p class="section-subtitle">Découvrez mes réalisations structurées en 3 sous-domaines d'expertise : Électronique, IA & Vision par Ordinateur, et Robotique.</p>
-
-          <!-- Interactive Category Filter Tabs -->
-          <div id="project-filter-tabs" style="display:flex; justify-content:center; gap:0.65rem; flex-wrap:wrap; margin-top:1.75rem;">
-            <button class="project-tab-btn active" data-section="all" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:700; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--cyan-glow); background:var(--cyan-glow); color:#060b17;">
-              Tous les Projets (9)
-            </button>
-            <button class="project-tab-btn" data-section="electronics" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--border-color); background:rgba(18, 30, 54, 0.4); color:var(--text-muted);">
-              Électronique & PCB (4)
-            </button>
-            <button class="project-tab-btn" data-section="ai-vision" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--border-color); background:rgba(18, 30, 54, 0.4); color:var(--text-muted);">
-              IA, MLOps & Vision (4)
-            </button>
-            <button class="project-tab-btn" data-section="robotics" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--border-color); background:rgba(18, 30, 54, 0.4); color:var(--text-muted);">
-              Robotique (1)
-            </button>
-          </div>
+          <div class="section-tag"><span class="dot"></span> Aperçu des Réalisations</div>
+          <h2 class="section-title">Projets à la Une</h2>
+          <p class="section-subtitle">Sélection de projets phares en perception ADAS, carte électronique STM32/KiCad & IA Médicale.</p>
         </div>
 
-        <div id="projects-container" style="display:flex; flex-direction:column; gap:3.5rem;">
-          <!-- Dynamically populated by app.js grouped into 3 subsections -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Embedded Skills Matrix -->
-    <section id="skills">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag"><span class="dot"></span> Domaine d'Expertise</div>
-          <h2 class="section-title">Matrice des Compétences Techniques</h2>
-          <p class="section-subtitle">Savoir-faire structuré : C/C++/Python, Linux embarqué, ROS2, FreeRTOS, CAO PCB KiCad, MLOps, protocoles et tests IVVQ.</p>
+        <div id="featured-projects-grid" class="projects-grid" style="margin-bottom:2.5rem;">
+          <!-- Populated dynamically by app.js -->
         </div>
 
-        <div id="skills-matrix-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
-          <!-- Dynamically populated by app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience & Career Timeline -->
-    <section id="experience" style="background:var(--bg-secondary); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag"><span class="dot"></span> Parcours Professionnel</div>
-          <h2 class="section-title">Expériences en Industrie & Recherche</h2>
-          <p class="section-subtitle">Missions d'ingénierie réalisées chez Manitou Group, Equium, CNRS Institut Pascal et Insight Solutions.</p>
-        </div>
-
-        <div id="timeline-container" style="max-width:820px; margin:0 auto 4rem auto;">
-          <!-- Dynamically rendered by app.js -->
-        </div>
-
-        <!-- Cursus Académique Section -->
-        <div style="max-width:820px; margin:0 auto;">
-          <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--cyan-glow); margin-bottom:1.25rem; text-transform:uppercase; letter-spacing:1px; font-weight:700;">
-            🎓 CURSUS ACADÉMIQUE & DIPLÔMES
-          </div>
-          <div id="education-container" style="display:flex; flex-direction:column; gap:1.25rem;">
-            <!-- Dynamically rendered by app.js -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Direct Contact Form with Web3Forms Live Email Delivery -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag"><span class="dot"></span> Prise de Contact & Recrutement</div>
-          <h2 class="section-title">Contactez Fatima Elkhadiri</h2>
-          <p class="section-subtitle">Vous avez un poste d'ingénieure en systèmes embarqués, robotique ou vision à me proposer en CDI ? Transmettez votre message directement sur ma boîte mail.</p>
-        </div>
-
-        <div style="max-width:650px; margin:0 auto; background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.25rem; backdrop-filter:var(--glass-backdrop); box-shadow:var(--card-shadow);">
-          
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.75rem; font-family:var(--font-mono); font-size:0.8rem;">
-            <div style="background:rgba(18, 30, 54, 0.5); padding:0.85rem; border-radius:8px; border:1px solid var(--border-color);">
-              <div style="color:var(--text-dim);">EMAIL DIRECT:</div>
-              <a href="mailto:fatima.elkhadiri.pro@gmail.com" style="color:var(--cyan-glow); text-decoration:none; font-weight:600;">fatima.elkhadiri.pro@gmail.com</a>
-            </div>
-            <div style="background:rgba(18, 30, 54, 0.5); padding:0.85rem; border-radius:8px; border:1px solid var(--border-color);">
-              <div style="color:var(--text-dim);">TÉLÉPHONE:</div>
-              <div style="color:var(--cyan-glow); font-weight:600;">+33 7 80 05 80 92</div>
-            </div>
-          </div>
-
-          <form id="hex-contact-form" action="https://api.web3forms.com/submit" method="POST" style="display:flex; flex-direction:column; gap:1.25rem;">
-            <input type="hidden" name="access_key" value="164da1c2-6391-449d-a583-f5d3b73bac1c">
-            <input type="hidden" name="subject" value="Nouveau Message - Portfolio Fatima Elkhadiri">
-            <input type="hidden" name="from_name" value="Portfolio Fatima Elkhadiri">
-
-            <div>
-              <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE NOM & PRÉNOM (RECRUTEUR / ENTREPRISE) :</label>
-              <input type="text" name="name" required placeholder="Jean Dupont (Recruteur / Entreprise)" style="width:100%; padding:0.85rem; background:#060b17; border:1px solid var(--border-color); border-radius:8px; color:var(--text-main); font-family:var(--font-sans); font-size:0.9rem; outline:none; transition:var(--transition-fast);">
-            </div>
-
-            <div>
-              <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE ADRESSE EMAIL :</label>
-              <input type="email" name="email" id="contact-email" required placeholder="recrutement@entreprise.fr" style="width:100%; padding:0.85rem; background:#060b17; border:1px solid var(--border-color); border-radius:8px; color:var(--text-main); font-family:var(--font-sans); font-size:0.9rem; outline:none; transition:var(--transition-fast);">
-            </div>
-
-            <div>
-              <label style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:0.4rem;">VOTRE MESSAGE / OFFRE CDI :</label>
-              <textarea name="message" id="contact-msg" rows="4" required placeholder="Bonjour Fatima, nous recherchons une ingénieure systèmes embarqués & vision..." style="width:100%; padding:0.85rem; background:#060b17; border:1px solid var(--border-color); border-radius:8px; color:var(--text-main); font-family:var(--font-sans); font-size:0.9rem; outline:none; resize:vertical; transition:var(--transition-fast);"></textarea>
-            </div>
-
-            <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="justify-content:center; padding:0.9rem; font-size:0.95rem;">
-              Envoyer un Message Direct à Fatima
-            </button>
-          </form>
+        <div style="text-align:center;">
+          <a href="./projects.html" class="btn btn-primary" style="padding:0.85rem 2rem; font-size:0.95rem;">
+            🔍 Découvrir les 9 Projets Détaillés →
+          </a>
         </div>
       </div>
     </section>

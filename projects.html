@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Projets - Fatima Elkhadiri</title>
+  <meta name="description" content="Découvrez l'ensemble des 9 projets d'ingénierie réalisations par Fatima Elkhadiri : Électronique & PCB, IA & Vision par Ordinateur, Robotique.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Application Styles -->
+  
+  
+  <script type="module" crossorigin src="/Fatima_Elkhadiri_Portfolio/assets/app-3d68bc08.js"></script>
+  <link rel="stylesheet" href="/Fatima_Elkhadiri_Portfolio/assets/app-7b2aeeb5.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav">
+    <div class="telemetry-ticker">
+      <div class="telemetry-item">
+        <span class="status-indicator"></span>
+        <span>FATIMA ELKHADIRI</span>
+      </div>
+      <div class="telemetry-item">
+        <span>RÉSIDENCE: <strong style="color:var(--text-main);">FRANCE (MOBILITÉ NATIONALE)</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span>DISPONIBILITÉ: <strong style="color:var(--green-glow);">IMMÉDIATE (CDI)</strong></span>
+      </div>
+    </div>
+
+    <div class="nav-content">
+      <a href="./index.html" class="brand">
+        FATIMA ELKHADIRI <span class="brand-dot"></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="./index.html" class="nav-link">Accueil</a></li>
+        <li><a href="./projects.html" class="nav-link active">Projets</a></li>
+        <li><a href="./skills.html" class="nav-link">Compétences</a></li>
+        <li><a href="./experience.html" class="nav-link">Parcours</a></li>
+        <li><a href="./contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="./contact.html" class="btn btn-primary">Me Contacter</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Projects Section Header -->
+    <section style="background:var(--bg-secondary); border-bottom:1px solid var(--border-color); padding-top:4rem; padding-bottom:3.5rem;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom:0;">
+          <div class="section-tag"><span class="dot"></span> Réalisations Technologiques</div>
+          <h1 class="section-title">Projets Systèmes Embarqués, IA & Robotique</h1>
+          <p class="section-subtitle">Découvrez mes réalisations structurées en 3 sous-domaines d'expertise : Électronique, IA & Vision par Ordinateur, et Robotique.</p>
+
+          <!-- Interactive Category Filter Tabs -->
+          <div id="project-filter-tabs" style="display:flex; justify-content:center; gap:0.65rem; flex-wrap:wrap; margin-top:1.75rem;">
+            <button class="project-tab-btn active" data-section="all" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:700; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--cyan-glow); background:var(--cyan-glow); color:#060b17;">
+              Tous les Projets (9)
+            </button>
+            <button class="project-tab-btn" data-section="electronics" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--border-color); background:rgba(18, 30, 54, 0.4); color:var(--text-muted);">
+              Électronique & PCB (4)
+            </button>
+            <button class="project-tab-btn" data-section="ai-vision" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--border-color); background:rgba(18, 30, 54, 0.4); color:var(--text-muted);">
+              IA, MLOps & Vision (4)
+            </button>
+            <button class="project-tab-btn" data-section="robotics" style="padding:0.6rem 1.35rem; border-radius:9999px; font-family:var(--font-sans); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); border:1px solid var(--border-color); background:rgba(18, 30, 54, 0.4); color:var(--text-muted);">
+              Robotique (1)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Projects Subsections Container -->
+    <section class="container" style="padding-top:4rem; padding-bottom:5rem;">
+      <div id="projects-container" style="display:flex; flex-direction:column; gap:3.5rem;">
+        <!-- Dynamically populated by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding:2.5rem 0; text-align:center; font-family:var(--font-mono); font-size:0.82rem; color:var(--text-dim); border-top:1px solid var(--border-color);">
+    <div class="container">
+      <p>© 2026 Fatima Elkhadiri. Portfolio Ingénieure Systèmes Embarqués, Robotique & Vision.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Container for PCB & Code Inspector -->
+  <div id="modal-overlay" class="modal-overlay"></div>
+
+  <!-- Main JavaScript Module -->
+  
+</body>
+</html>
