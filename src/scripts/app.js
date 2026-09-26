@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="project-badge">${proj.badge}</div>
       </div>
       <div class="project-body">
-        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-glow); margin-bottom:0.25rem;">
+        <div style="font-family:var(--font-mono); font-size:0.75rem; font-weight:600; color:var(--cyan-glow); margin-bottom:0.35rem; letter-spacing:0.5px;">
           ${proj.category.toUpperCase()}
         </div>
         <h3 class="project-title">${proj.title}</h3>
@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="project-actions" style="flex-direction:column; gap:0.5rem;">
-          <button class="btn btn-primary open-pcb-btn" data-project="${proj.id}" style="width:100%;">
-            ⚡ Galerie & Médias (${proj.gallery ? proj.gallery.length : 1})
+          <button class="btn btn-primary open-pcb-btn" data-project="${proj.id}" style="width:100%; justify-content:center;">
+            📷 Galerie & Médias (${proj.gallery ? proj.gallery.length : 1})
           </button>
           ${proj.cadlabUrl ? `
-            <a href="${proj.cadlabUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
+            <a href="${proj.cadlabUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.8rem;">
               🔗 Voir sur CADLAB.io
             </a>
           ` : ''}
           ${proj.pdfReport ? `
-            <a href="${proj.pdfReport}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.78rem;">
+            <a href="${proj.pdfReport}" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width:100%; justify-content:center; text-decoration:none; font-size:0.8rem;">
               📄 Rapport PDF (${proj.pdfTitle})
             </a>
           ` : ''}
@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (secProjects.length === 0) return '';
 
       return `
-        <div class="project-subsection" style="display:flex; flex-direction:column; gap:1.25rem;">
-          <div style="border-left:4px solid var(--cyan-glow); padding:0.85rem 1.25rem; background:rgba(0,240,255,0.03); border-radius:0 8px 8px 0; border:1px solid rgba(0,240,255,0.1); border-left-width:4px;">
-            <h3 style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--cyan-glow); display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
-              ${sec.title} <span style="font-size:0.85rem; color:var(--text-dim); font-weight:400;">(${secProjects.length} projet${secProjects.length > 1 ? 's' : ''})</span>
+        <div class="project-subsection" style="display:flex; flex-direction:column; gap:1.5rem;">
+          <div style="border-left:3px solid var(--cyan-glow); padding:0.85rem 1.25rem; background:rgba(255,255,255,0.02); border-radius:0 10px 10px 0; border:1px solid var(--border-color); border-left-width:3px;">
+            <h3 style="font-family:var(--font-sans); font-size:1.3rem; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
+              ${sec.title} <span style="font-size:0.85rem; color:var(--text-dim); font-weight:400; font-family:var(--font-mono);">(${secProjects.length} projet${secProjects.length > 1 ? 's' : ''})</span>
             </h3>
-            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">${sec.desc}</p>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin:0; line-height:1.5;">${sec.desc}</p>
           </div>
 
           <div class="projects-grid">
@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
       
       tabBtns.forEach(b => {
         b.classList.remove('active');
-        b.style.background = 'rgba(0,0,0,0.4)';
-        b.style.color = 'var(--text-main)';
+        b.style.background = 'rgba(255,255,255,0.03)';
+        b.style.color = 'var(--text-muted)';
         b.style.borderColor = 'var(--border-color)';
       });
 
       btn.classList.add('active');
       btn.style.background = 'var(--cyan-glow)';
-      btn.style.color = '#000';
+      btn.style.color = '#0b0f17';
       btn.style.borderColor = 'var(--cyan-glow)';
 
       renderProjectsBySection(sectionId);
@@ -114,17 +114,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const skillsContainer = document.getElementById('skills-matrix-grid');
   if (skillsContainer) {
     skillsContainer.innerHTML = skillsCategories.map(cat => `
-      <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; backdrop-filter:var(--glass-backdrop);">
-        <h3 style="font-family:var(--font-mono); font-size:1.05rem; color:var(--cyan-glow); margin-bottom:1.25rem; display:flex; align-items:center; gap:0.5rem;">
+      <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.5rem; backdrop-filter:var(--glass-backdrop); box-shadow:var(--card-shadow);">
+        <h3 style="font-family:var(--font-sans); font-size:1.05rem; font-weight:700; color:var(--cyan-glow); margin-bottom:1.25rem; display:flex; align-items:center; gap:0.5rem;">
           <span style="color:var(--amber-glow);">❖</span> ${cat.category}
         </h3>
-        <div style="display:flex; flex-direction:column; gap:0.85rem;">
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
           ${cat.items.map(item => `
-            <div style="background:rgba(0,240,255,0.03); border:1px solid rgba(0,240,255,0.1); border-radius:6px; padding:0.6rem 0.85rem;">
-              <div style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:0.4rem;">
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); border-radius:8px; padding:0.65rem 0.9rem;">
+              <div style="font-family:var(--font-sans); font-size:0.9rem; font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:0.4rem;">
                 <span style="color:var(--green-glow);">✓</span> ${item.name}
               </div>
-              <div style="font-size:0.78rem; color:var(--text-muted); margin-top:0.2rem; padding-left:1.1rem;">
+              <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.25rem; padding-left:1.1rem; line-height:1.4;">
                 ${item.desc}
               </div>
             </div>
@@ -139,13 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (timelineContainer) {
     timelineContainer.innerHTML = experienceTimeline.map((item, idx) => `
       <div style="position:relative; padding-left:2.5rem; margin-bottom:2.5rem;">
-        <div style="position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:50%; background:var(--cyan-glow); box-shadow:0 0 10px var(--cyan-glow); border:2px solid #000;"></div>
-        ${idx !== experienceTimeline.length - 1 ? '<div style="position:absolute; left:6px; top:18px; bottom:-30px; width:2px; background:rgba(0,240,255,0.2);"></div>' : ''}
+        <div style="position:absolute; left:0; top:4px; width:12px; height:12px; border-radius:50%; background:var(--cyan-glow); border:2px solid var(--bg-primary);"></div>
+        ${idx !== experienceTimeline.length - 1 ? '<div style="position:absolute; left:5px; top:18px; bottom:-30px; width:2px; background:rgba(255,255,255,0.08);"></div>' : ''}
         
-        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan-glow); margin-bottom:0.25rem;">${item.period}</div>
-        <h3 style="font-size:1.25rem; font-weight:700; color:var(--text-main);">${item.role} <span style="color:var(--text-muted); font-size:1rem; font-weight:400;">@ ${item.company}</span></h3>
+        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan-glow); margin-bottom:0.25rem; font-weight:600;">${item.period}</div>
+        <h3 style="font-size:1.2rem; font-weight:700; color:var(--text-main);">${item.role} <span style="color:var(--text-muted); font-size:0.95rem; font-weight:400;">@ ${item.company}</span></h3>
         
-        <ul style="margin-top:0.75rem; display:flex; flex-direction:column; gap:0.4rem; color:var(--text-muted); font-size:0.92rem; padding-left:1.2rem;">
+        <ul style="margin-top:0.75rem; display:flex; flex-direction:column; gap:0.45rem; color:var(--text-muted); font-size:0.92rem; padding-left:1.2rem; line-height:1.55;">
           ${item.highlights.map(h => `<li>${h}</li>`).join('')}
         </ul>
       </div>
@@ -156,11 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const educationContainer = document.getElementById('education-container');
   if (educationContainer) {
     educationContainer.innerHTML = educationList.map(edu => `
-      <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; backdrop-filter:var(--glass-backdrop);">
+      <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.35rem; backdrop-filter:var(--glass-backdrop); box-shadow:var(--card-shadow);">
         <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--amber-glow); font-weight:600;">${edu.period}</div>
-        <h4 style="font-size:1.1rem; font-weight:700; color:var(--text-main); margin:0.25rem 0;">${edu.degree}</h4>
-        <div style="color:var(--cyan-glow); font-family:var(--font-mono); font-size:0.85rem; margin-bottom:0.5rem;">${edu.school}</div>
-        <p style="color:var(--text-muted); font-size:0.88rem;">${edu.details}</p>
+        <h4 style="font-size:1.1rem; font-weight:700; color:var(--text-main); margin:0.35rem 0 0.2rem 0;">${edu.degree}</h4>
+        <div style="color:var(--cyan-glow); font-family:var(--font-sans); font-size:0.88rem; font-weight:600; margin-bottom:0.5rem;">${edu.school}</div>
+        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">${edu.details}</p>
       </div>
     `).join('');
   }
@@ -188,9 +188,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
 
         if (data.success) {
-          btn.textContent = '⚡ MESSAGE TRANSMIS À FATIMA (REÇU SUR GMAIL) !';
+          btn.textContent = '✓ MESSAGE TRANSMIS À FATIMA (REÇU SUR GMAIL) !';
           btn.style.background = 'var(--green-glow)';
-          btn.style.color = '#000';
+          btn.style.color = '#0b0f17';
           contactForm.reset();
 
           setTimeout(() => {
@@ -209,13 +209,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // Live Telemetry Ticker CPU Load Simulator
-  const cpuLoadEl = document.getElementById('telemetry-cpu-load');
-  setInterval(() => {
-    if (cpuLoadEl) {
-      const load = (11 + Math.random() * 4).toFixed(1);
-      cpuLoadEl.textContent = `${load}%`;
-    }
-  }, 2000);
 });
